@@ -12,4 +12,14 @@ class SongsControllerTest < ActionController::TestCase
 
   end
 
+  test '#create invalid' do
+
+    assert_difference 'Song.count', 0 do
+      post :create, {title: ''}.to_json, format: :json
+    end
+    assert_response 422
+    assert_equal %{{"errors":[1]}}, response.body
+
+  end
+
 end
