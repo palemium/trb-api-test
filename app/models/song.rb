@@ -13,7 +13,7 @@ class Song < ActiveRecord::Base
     end
 
     representer do
-      include Roar::JSON
+      feature Roar::JSON
     end
 
     def process(params)
